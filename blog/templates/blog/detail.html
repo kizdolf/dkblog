@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ article.main_name }}{% endblock %}
+{% block content %}
+{% load staticfiles %}
+{% if message %}
+<div class="alert alert-info">
+	{{ message }}
+</div>
+{% endif %}
+<div id="links" class="col-md-3">
+	<h3>Link{{ links|pluralize }} related:</h3>
+	{% if links %}
+		{% for link in links %}
+			<a href="{{link.url}}">{{link.title}}</a>
+		{% endfor %}
+	{% else %}
+		<p>Well... there is no links related</p>
+	{% endif %}
+</div>
+<div id="full-article" class="col-md-7">
+	<h1>{{article.main_name}}</h1>
+	<span class='date'> Le : {{article.pub_date}}</span>
+	<div clas="txt-article">
+		{{article.text}}
+	</div>
+</div>
+<div id="tags" class="col-md-2">
+{% if article.tags.count > 0 %}
+	<h2>Tags: </h2>
+	{% for tag in article.tags.all %}
+		<br>
+			<a href="{% url 'blog:tag' tag.id %}">{{tag.name}}</a>
+	{% endfor %}
+{% endif %}
+</div>
+<hr style="clear: both">
+<h4 style="text-align:center;">By <a href="{% url 'blog:author' article.author.id %}">{{ article.author.main_name }}</a></h4>
+<!-- <img src="{% static article.author.img.url %}"> -->
+{% include "blog/comments.html" with id_comment=article.id %}
+{% endblock content %}

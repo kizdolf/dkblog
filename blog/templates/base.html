@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DonKino | {% block title %} Index {% endblock title %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+</head>
+<body>
+<div id="menu">
+	<ul>
+		<li>
+			<a href="{% url 'blog:index' %}">Home</a>
+		</li>
+		<li>
+			<a href="/admin">Admin</a>
+		</li>
+	</ul>
+</div>
+<div id="wrapper" >
+	{% block content %}{% endblock content %}
+</div>
+</body>
+</html>

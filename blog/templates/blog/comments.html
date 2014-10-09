@@ -1,0 +1,25 @@
+<div class="col-md-3"></div>
+<div class="col-md-6 comment-block">
+	<h4>Commentaires:</h4>
+	{% if comments %}
+		{% for comm in comments %}
+			<div class="comment">
+				<h5>{{comm.author}}</h5>
+				<p>{{comm.text}}</p>
+				<br>
+			</div>
+		{% endfor %}
+	{% else %}
+		<p>Pas de commentaires pour le moment.</p>
+	{% endif %}
+	<div id="com-answer">
+	<p>Répondre</p>
+	<form action="{% url 'blog:comment' id_comment %}" method="post">
+	{% csrf_token %}
+		<input type="text" name="author" placeholder="pseudo">
+		<p>message:</p>
+		<textarea name="text"></textarea>
+	<input type="submit" value="comment" />
+	</form>
+	</div>
+</div>

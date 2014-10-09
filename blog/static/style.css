@@ -1,0 +1,109 @@
+ul, li, span{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	margin-top: 35px;
+}
+
+#menu{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 30px;
+	width: 100%;
+	background: black;
+	z-index: 2;
+}
+
+#menu ul{
+	list-style-type: none;
+}
+#menu ul li {
+	float: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid white;
+	background: white;
+	margin-left: 5px;
+}
+#menu ul li a {
+	line-height: 30px;
+}
+
+#wrapper{
+	float:none;
+	margin-top: 140px;
+}
+
+#wrapper ul {
+	list-style-type: none;
+}
+
+#quote{
+	position: fixed;
+	width: 100%;
+	top: 30px;
+	left: 0px;
+	padding: 5px;
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.article-block{
+	margin:2px;
+	box-shadow: 1px 1px 2px 0px rgba(128, 128, 128, 0.82);
+	-webkit-transition: all .15s ease;
+	   -moz-transition: all .15s ease;
+	    -ms-transition: all .15s ease;
+	     -o-transition: all .15s ease;
+	        transition: all .15s ease;
+}
+
+.article-block:hover{
+	box-shadow: 2px 2px 0px 0px rgba(128, 128, 128, 0.82);
+	padding-left: 2px;
+}
+
+.pagination {
+	text-align: center;
+}
+
+.date{
+	border: 1px solid rgba(128, 128, 128, 0.52);
+	padding: 1px;
+	float: right;
+}
+
+.txt-article{
+	text-align: justify;
+}
+#full-article{
+	margin-bottom: 60px;
+}
+
+.comment{
+	margin:2px;
+	box-shadow: 1px 1px 2px 0px rgba(128, 128, 128, 0.82);
+}
+
+.comment h5{
+	font-size: 16px;
+	background: rgba(128, 128, 128, 0.12);
+}
+
+#com-answer textarea{
+	width: 100%;
+	min-height: 80px;
+}
+
+.articles-lnk a{
+	float: left;
+	min-height: 40px;
+	line-height: 40px;
+	padding: 2px;
+	margin:2px;
+	border:1px solid rgba(184, 184, 184, 0.55);
+	vertical-align: center;
+}
+

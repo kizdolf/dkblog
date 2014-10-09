@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="col-md-6 center-block" id="wrapper">
+<div id= "quote">
+    <h4>{{quote}}</h4>
+    <span class='author'> {{ quote.author }} </span>
+</div>
+    {% if latest_articles_list %}
+        <ul>
+        {% for article in latest_articles_list %}
+        	<li class="article-block">
+                    <h1>{{ article.main_name }}</h1>
+                    <div class="article-short">
+                    	{{article.short}}
+                    </div>
+                    <h3><a class="article-lnk" href="{% url 'blog:detail' article.id %}">Voir l'article</a></h3>
+                    <p>by <a href="{% url 'blog:author' article.author.id %}"> {{  article.author  }} </a></p>
+                    <hr>
+                </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Pas d'articles en ce moment. bisous</p>
+    {% endif %}
+
+    <div class="pagination center-block">
+        <span class="step-links">
+            {% if latest_articles_list.has_previous %}
+                <a href="?page={{ latest_articles_list.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ latest_articles_list.number }} of {{ latest_articles_list.paginator.num_pages }}.
+            </span>
+
+            {% if latest_articles_list.has_next %}
+                <a href="?page={{ latest_articles_list.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock content %}

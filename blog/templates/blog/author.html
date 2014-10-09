@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ author.main_name }}{% endblock %}
+{% block content %}
+<div class="col-md-6 center-block" id="wrapper">
+	<h1>{{author.main_name}}</h1>
+	<div>
+		mail de contact : {{ author.mail }} <hr>
+		à écrit {{author.count_article}} article{{ author.count_article|pluralize }}. <hr>
+	</div>
+	<div id="bio">
+		{{ author.text }}
+	</div>
+	<hr>
+	<span>Article{{ author.count_article|pluralize }} : <br></span>
+	 {% for a in articles %}
+		<div class="articles-lnk">
+		<a href="{% url 'blog:detail' a.id %}">{{a.main_name}}</a>
+		</div>
+	{% endfor %}
+</div>
+{% endblock content %}

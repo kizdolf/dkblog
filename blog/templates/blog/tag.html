@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ tag.name }}{% endblock %}
+{% block content %}
+<div class="col-md-6 center-block" id="wrapper">
+	<h1>{{tag.name}}</h1>
+
+	{% for article in articles %}
+	<div class="articles-lnk">
+		<a href="{% url 'blog:detail' article.id %}" title="{{ article.short }}">{{article.main_name}}</a>
+	</div>
+	{% endfor %}
+</div>
+{% endblock content %}
